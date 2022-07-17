@@ -45,8 +45,12 @@ class Model {
     }
 
     private function save() {
-        $file = fopen($file_name, 'w');
-        fwrite($file, $this->data);
-        fclose($file);
+        $file_name = ROOTPATH.'/Database/'.$this->name.'.json';
+
+        $file = fopen($file_name, 'w+');
+        fwrite($file, json_encode($this->data));
+        fclose($file); 
     }
+
+    
 }

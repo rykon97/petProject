@@ -8,7 +8,17 @@ class BlogController extends Controller {
         $model = new Post;
 
         $this->render('Blog', [
-            'posts' => [$model->find(2)]
+            'posts' => $model->getAll()
         ]);
+    }
+
+    public function create() {
+        $blogModel = new Post;
+        $blogModel->create([
+            'title'=>'Name',
+            'image'=>'',
+            'about'=>''
+        ]);
+        echo 'запис створеного';
     }
 }
