@@ -18,6 +18,7 @@ class Controller {
         require $viewFile;
         $body = ob_get_clean();
         ob_end_clean();
-        return $this->renderLayout($body);
+        echo $this->renderLayout($body);
+        return null;
     }
 }

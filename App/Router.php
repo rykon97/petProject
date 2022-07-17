@@ -5,6 +5,7 @@ class Router {
     public array $list;
     public string $url;
 
+
     public function __construct() {
         $this->url = $_SERVER['REQUEST_URI'];
         $this->list = [];
