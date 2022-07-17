@@ -5,8 +5,10 @@ use App\Models\Post;
 
 class BlogController extends Controller {
     public function index() {
-        $post = new Post;
+        $model = new Post;
 
-        $this->render('Blog');
+        $this->render('Blog', [
+            'posts' => [$model->find(2)]
+        ]);
     }
 }
