@@ -33,4 +33,20 @@ class Model {
             }
         }
     }
+
+    public function create($info) {
+       $max = count($this->data['database']);
+       $item = $this->data['database'][$max - 1];
+       $newId = intval($item['id']) + 1;
+       $save = $info;
+       $save['id'] = $newId;
+       $this->data['database'][] = $save;  
+       $this->save();
+    }
+
+    private function save() {
+        $file = fopen($file_name, 'w');
+        fwrite($file, $this->data);
+        fclose($file);
+    }
 }
